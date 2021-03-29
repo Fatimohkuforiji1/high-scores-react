@@ -7,7 +7,7 @@ const Header = () => {
         return (
           <div>
             <h1>High Score per Country</h1>
-            {/* <SortButton handleClick = {HandleSortClick} /> */}
+            <SortButton handleClick = {""} />
           </div>
         );
 }
