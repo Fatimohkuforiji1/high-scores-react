@@ -1,8 +1,8 @@
-import React from 'react'
+// import React from 'react'
 
-const SortButton = (props) => {
-    return <button onClick={props.handleClick}>Sort</button>
+// const SortButton = () => {
+//     return <button onClick >Sort</button>
 
- }
+//  }
 
-export default SortButton
+// export default SortButton
