@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 const CountryScores = (props) => {
     let scores = props.scores;
@@ -9,35 +9,30 @@ const CountryScores = (props) => {
         return -1;
       }
     });
-const HandleSortClick = () => {
-const [sort, setSort] = useState(ascending);
 
+if (props.orderOfSorts === "ascending") {
+  scores = props.scores.sort((a, b) => {
+    if (a.s < b.s) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+} else {
+   scores = props.scores.sort((a, b) => {
+     if (a.s < b.s) {
+       return -1;
+     } else {
+       return 1;
+     }
+   });
+}
 
-const ascending = () => {
-      scores.sort((a, b) => {
-        if (a.s < b.s) {
-          return 1;
-        } else {
-          return -1;
-        }
-      });
-    };
-    const descending = () => {
-      scores.sort((a, b) => {
-        if (a.s < b.s) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    };
-  };
-       
     return (
-      <table className = "borderContainer" border="1px">
-        <tbody>
+      <table className="table">
+        <tbody >
           {scores.map((score, index) => (
-            <tr key = {index}>
+            <tr className="tableBody" key={index}>
               <th>{score.n}</th>
               <td>{score.s}</td>
             </tr>
