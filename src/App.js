@@ -3,7 +3,7 @@ import CountryNames from './component/CountryNames';
 import CountryScores from './component/CountryScores';
 import Header from './component/Header';
 import allCountryScores from "./data/allCountryScores.js";
-
+import React, { useState } from "react";
 
 
 function App() {
@@ -16,14 +16,25 @@ function App() {
    }
  })
 
+ const [sort, setSort] = useState("ascending");
+ const SortButton =()=>{
+  setSort(sort =>{
+    if (sort === "ascending"){
+      return "descending"
+    } else { return "ascending"}
+  } )
+ }
+
   return (
-    <div>
+    <div className="body">
       <Header />
-    
+      <button onClick={SortButton}>Sort </button>
       {sortedCountryNames.map((country, index) => (
         <div key={index}>
-          <CountryNames name={country.name} />
-          <CountryScores scores = {country.scores} />
+          <section className="divtables">
+            <CountryNames name={country.name} />
+            <CountryScores orderOfSorts={sort} scores={country.scores} />
+          </section>
         </div>
       ))}
     </div>
